@@ -2,7 +2,7 @@
 
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
-  require '../assets/config/nogi'
+  require '../assets/config/nogi.rb'
 
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
