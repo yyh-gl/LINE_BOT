@@ -30,29 +30,40 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           if name_match?(MAI_SHIRAISHI, event)
+            send_image = MAI_SHIRAISHI_IMAGE.sample
             message = {
               type: 'image',
-              originalContentUrl: MAI_SHIRAISHI_IMAGE,
-              previewImageUrl: MAI_SHIRAISHI_IMAGE
+              originalContentUrl: send_image,
+              previewImageUrl: send_image
             }
           elsif name_match?(ERIKA_IKUTA, event)
+            send_image = ERIKA_IKUTA_IMAGE.sample
             message = {
               type: 'image',
-              originalContentUrl: ERIKA_IKUTA_IMAGE,
-              previewImageUrl: ERIKA_IKUTA_IMAGE
+              originalContentUrl: send_image,
+              previewImageUrl: send_image
             }
           elsif name_match?(MINAMI_UMEZAWA, event)
+            send_image = MINAMI_UMEZAWA_IMAGE.sample
             message = {
               type: 'image',
-              originalContentUrl: MINAMI_UMEZAWA_IMAGE,
-              previewImageUrl: MINAMI_UMEZAWA_IMAGE
+              originalContentUrl: send_image,
+              previewImageUrl: send_image
             }
           elsif name_match?(ASUKA_SAITOU, event)
+            send_image = ASUKA_SAITOU_IMAGE.sample
             message = {
               type: 'image',
-              originalContentUrl: ASUKA_SAITOU_IMAGE,
-              previewImageUrl: ASUKA_SAITOU_IMAGE
+              originalContentUrl: send_image,
+              previewImageUrl: send_image
             }
+          elsif name_match?(RINA_IKOMA, event)
+            send_image = RINA_IKOMA_IMAGE.sample
+            message = {
+              type: 'image',
+              originalContentUrl: send_image,
+              previewImageUrl: send_image
+            }            
           else
             # message = {
             #   type: 'text',
