@@ -2,7 +2,7 @@
 
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
-#  require 'config/nogi.rb'
+  require 'config/nogi'
 
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
@@ -29,8 +29,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          #if MAI_SHIRAISHI.include?(event.message['text'])
-          if event.message['text'] == "あ"
+          if MAI_SHIRAISHI.include?(event.message['text'])
             message = {
               type: 'image',
               originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
