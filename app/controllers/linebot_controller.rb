@@ -1,4 +1,5 @@
 # coding: utf-8
+
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
 
