@@ -39,11 +39,6 @@ class LinebotController < ApplicationController
             send_image = ASUKA_SAITOU_IMAGE.sample
           elsif name_match?(RINA_IKOMA, event)
             send_image = RINA_IKOMA_IMAGE.sample
-          elsif name_match?(HELP, event)
-            message = {
-              type: 'text',
-              text: "今は#{ALL}がいるよ☆"
-            }
           else
             # message = {
             #   type: 'text',
@@ -55,6 +50,12 @@ class LinebotController < ApplicationController
             originalContentUrl: send_image,
             previewImageUrl: send_image
           }
+          if name_match?(HELP, event)
+            message = {
+              type: 'text',
+              text: "今は#{ALL}がいるよ☆"
+            }
+          end
           client.reply_message(event['replyToken'], message)          
         end
       end
