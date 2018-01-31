@@ -30,7 +30,7 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           #if MAI_SHIRAISHI.include?(event.message['text'])
-          if event.message['text'] == "白石"
+          if event.message['text'] == "あ"
             message = {
               type: 'image',
               originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
