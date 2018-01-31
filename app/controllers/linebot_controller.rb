@@ -2,7 +2,7 @@
 
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
-  require '../assets/config/nogi.rb'
+  require 'nogi'
 
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
@@ -35,18 +35,18 @@ class LinebotController < ApplicationController
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
               previewImageUrl: MAI_SHIRAISHI_IMAGE
             }
-          # elsif ERIKA_IKUTA.include?(event.message['text'])
-          #   message = {
-          #     type: 'image',
-          #     originalContentUrl: ERIKA_IKUTA_IMAGE,
-          #     previewImageUrl: ERIKA_IKUTA_IMAGE
-          #   }
-          # elsif MINAMI_UMEZAWA.include?(event.message['text'])
-          #   message = {
-          #     type: 'image',
-          #     originalContentUrl: MINAMI_UMEZAWA_IMAGE,
-          #     previewImageUrl: MINAMI_UMEZAWA_IMAGE
-          #   }
+          elsif ERIKA_IKUTA.include?(event.message['text'])
+            message = {
+              type: 'image',
+              originalContentUrl: ERIKA_IKUTA_IMAGE,
+              previewImageUrl: ERIKA_IKUTA_IMAGE
+            }
+          elsif MINAMI_UMEZAWA.include?(event.message['text'])
+            message = {
+              type: 'image',
+              originalContentUrl: MINAMI_UMEZAWA_IMAGE,
+              previewImageUrl: MINAMI_UMEZAWA_IMAGE
+            }
           else
             message = {
               type: 'text',
