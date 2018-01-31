@@ -28,14 +28,19 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          message = {
-            # type: 'text',
-            # text: event.message['text']
-            type: 'image',
-            originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
-            previewImageUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg"
-          }
-          client.reply_message(event['replyToken'], message)
+          if event.message['text'] = "あ"
+            message = {
+              type: 'image',
+              originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
+              previewImageUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg"
+            }
+          else
+            message = {
+              type: 'text',
+              text: event.message['text']
+            }
+          end
+          client.reply_message(event['replyToken'], message)          
         end
       end
     }
