@@ -32,8 +32,8 @@ class LinebotController < ApplicationController
           if MAI_SHIRAISHI.include?(event.message['text'])
             message = {
               type: 'image',
-              originalContentUrl: MAI_SHIRAISHI_IMAGE,
-              previewImageUrl: MAI_SHIRAISHI_IMAGE
+              originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
+              previewImageUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg"
             }
           elsif ERIKA_IKUTA.include?(event.message['text'])
             message = {
