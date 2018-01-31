@@ -29,8 +29,11 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           message = {
-            type: 'text',
-            text: event.message['text']
+            # type: 'text',
+            # text: event.message['text']
+            type: 'image',
+            originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
+            previewImageUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg"
           }
           client.reply_message(event['replyToken'], message)
         end
