@@ -29,26 +29,25 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          #          if MAI_SHIRAISHI.include?(event.message['text'])
           if MAI_SHIRAISHI.each { |name| event.message['text'].match(/#{name}/) }
             message = {
               type: 'image',
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
               previewImageUrl: MAI_SHIRAISHI_IMAGE
             }
-          elsif ERIKA_IKUTA.include?(event.message['text'])
+          elsif ERIKA_IKUTA.each { |name| event.message['text'].match(/#{name}/) }
             message = {
               type: 'image',
               originalContentUrl: ERIKA_IKUTA_IMAGE,
               previewImageUrl: ERIKA_IKUTA_IMAGE
             }
-          elsif MINAMI_UMEZAWA.include?(event.message['text'])
+          elsif MINAMI_UMEZAWA.each { |name| event.message['text'].match(/#{name}/) }
             message = {
               type: 'image',
               originalContentUrl: MINAMI_UMEZAWA_IMAGE,
               previewImageUrl: MINAMI_UMEZAWA_IMAGE
             }
-          elsif ASUKA_SAITOU.include?(event.message['text'])
+          elsif ASUKA_SAITOU.each { |name| event.message['text'].match(/#{name}/) }
             message = {
               type: 'image',
               originalContentUrl: ASUKA_SAITOU_IMAGE,
