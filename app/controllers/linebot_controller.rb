@@ -35,19 +35,19 @@ class LinebotController < ApplicationController
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
               previewImageUrl: MAI_SHIRAISHI_IMAGE
             }
-          elsif ERIKA_IKUTA.each { |name| event.message['text'].match(/#{name}/) }
+          elsif name_match?(ERIKA_IKUTA, event)
             message = {
               type: 'image',
               originalContentUrl: ERIKA_IKUTA_IMAGE,
               previewImageUrl: ERIKA_IKUTA_IMAGE
             }
-          elsif MINAMI_UMEZAWA.each { |name| event.message['text'].match(/#{name}/) }
+          elsif name_match?(MINAMI_UMEZAWA, event)
             message = {
               type: 'image',
               originalContentUrl: MINAMI_UMEZAWA_IMAGE,
               previewImageUrl: MINAMI_UMEZAWA_IMAGE
             }
-          elsif ASUKA_SAITOU.each { |name| event.message['text'].match(/#{name}/) }
+          elsif name_match?(ASUKA_SAITOU, event)
             message = {
               type: 'image',
               originalContentUrl: ASUKA_SAITOU_IMAGE,
