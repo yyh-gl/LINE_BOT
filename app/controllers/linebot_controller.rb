@@ -47,6 +47,12 @@ class LinebotController < ApplicationController
               originalContentUrl: MINAMI_UMEZAWA_IMAGE,
               previewImageUrl: MINAMI_UMEZAWA_IMAGE
             }
+          elsif ASUKA_SAITOU.include?(event.message['text'])
+            message = {
+              type: 'image',
+              originalContentUrl: ASUKA_SAITOU_IMAGE,
+              previewImageUrl: ASUKA_SAITOU_IMAGE
+            }
           else
             message = {
               type: 'text',
