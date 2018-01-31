@@ -48,10 +48,10 @@ class LinebotController < ApplicationController
               previewImageUrl: MINAMI_UMEZAWA_IMAGE
             }
           else
-            # message = {
-            #   type: 'text',
-            #   text: event.message['text']
-            # }
+            message = {
+              type: 'text',
+              text: event.message['text']
+            }
           end
           client.reply_message(event['replyToken'], message)          
         end
