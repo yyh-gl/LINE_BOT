@@ -29,7 +29,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if name_match?(MAI_SHIRAISHI)
+          if name_match?(MAI_SHIRAISHI, event)
             message = {
               type: 'image',
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
@@ -69,7 +69,7 @@ class LinebotController < ApplicationController
 
   private
 
-  def name_match?(name_list)
+  def name_match?(name_list, event)
     name_list.each do |name|
       if event.message['text'].match(/#{name}/) != nil
         return true
