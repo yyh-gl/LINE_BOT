@@ -40,6 +40,10 @@ class LinebotController < ApplicationController
           elsif name_match?(RINA_IKOMA, event)
             send_image = RINA_IKOMA_IMAGE.sample
           elsif name_match?(HELP, event)
+            message = {
+              type: 'text',
+              text: "今は#{ALL}がいるよ☆"
+            }
           else
             # message = {
             #   type: 'text',
