@@ -36,18 +36,18 @@ class LinebotController < ApplicationController
               originalContentUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg",
               previewImageUrl: "https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg"
             }
-          elsif ERIKA_IKUTA.include?(event.message['text'])
-            message = {
-              type: 'image',
-              originalContentUrl: ERIKA_IKUTA_IMAGE,
-              previewImageUrl: ERIKA_IKUTA_IMAGE
-            }
-          elsif MINAMI_UMEZAWA.include?(event.message['text'])
-            message = {
-              type: 'image',
-              originalContentUrl: MINAMI_UMEZAWA_IMAGE,
-              previewImageUrl: MINAMI_UMEZAWA_IMAGE
-            }
+          # elsif ERIKA_IKUTA.include?(event.message['text'])
+          #   message = {
+          #     type: 'image',
+          #     originalContentUrl: ERIKA_IKUTA_IMAGE,
+          #     previewImageUrl: ERIKA_IKUTA_IMAGE
+          #   }
+          # elsif MINAMI_UMEZAWA.include?(event.message['text'])
+          #   message = {
+          #     type: 'image',
+          #     originalContentUrl: MINAMI_UMEZAWA_IMAGE,
+          #     previewImageUrl: MINAMI_UMEZAWA_IMAGE
+          #   }
           else
             message = {
               type: 'text',
