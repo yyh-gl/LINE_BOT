@@ -49,8 +49,8 @@ class LinebotController < ApplicationController
             type: 'image',
             # originalContentUrl: send_image,
             # previewImageUrl: send_image
-            originalContentUrl: "https://photos.google.com/u/2/photo/AF1QipPA-QPxPHeTMJqO850Nif7p6wD6OcH0zBqLMq2j",
-            previewImageUrl: "https://photos.google.com/u/2/photo/AF1QipPA-QPxPHeTMJqO850Nif7p6wD6OcH0zBqLMq2j"            
+            originalContentUrl: "https://lh3.googleusercontent.com/TNfqYHdJzMBtdL5pBBR14qAdA-Ff6VxH2x_CpnNtLSHiE8JAHpnXgNCYqbmzjxSAbYd4cAZERsnHFpxSVf4ai_P3J9ZA6AxAFt2wkBh0iLC7CR4ZLxTvilYHG3DkfhEcZU7cHuKdu1bjqmasKdsxavRpeWp1dasJNgAuosB9hMjuhC-CBCLQsVfix87lvWEUyfU2T0dRG9UV3sGhweY0YDz6-kGwiBhV0cgD2PRT21Vw_n04E7dzSlGjYWiMeSZ3Kvn4R0wau2KTBwR5QgRUhaDmCBqqTdHJCLi7r8vTFhZTbtuZI5dK9NvcJdDyp8H_bVh5hPtaehcOKrcADz3bw4ZKTX_aaP6wfITlyZgHeaCc01ZJBcAuTWnNEt_VNOsGbtkaK4sgXeb7A3PiePSpWgLAzU0jb9H37mCKMOuVbI2bQ860BHae8oPCqMo8-swunxW8H21zPgEZmd04UBBBwTPQE4dXWCSpRnG6nHJLeXbXzkonzKhcY_gOrZJwGkTg4fUQwGJdu81zyiBH8MLbZPpoi_V8q8si56LxnyuaQkJQdcRIWf3hwOsgiFxmhjAZVQbfe1Yf7dHjp3rcd8CIwAIqdIHgctGIkb1Otw=w640-h1136-no",
+            previewImageUrl: "https://lh3.googleusercontent.com/TNfqYHdJzMBtdL5pBBR14qAdA-Ff6VxH2x_CpnNtLSHiE8JAHpnXgNCYqbmzjxSAbYd4cAZERsnHFpxSVf4ai_P3J9ZA6AxAFt2wkBh0iLC7CR4ZLxTvilYHG3DkfhEcZU7cHuKdu1bjqmasKdsxavRpeWp1dasJNgAuosB9hMjuhC-CBCLQsVfix87lvWEUyfU2T0dRG9UV3sGhweY0YDz6-kGwiBhV0cgD2PRT21Vw_n04E7dzSlGjYWiMeSZ3Kvn4R0wau2KTBwR5QgRUhaDmCBqqTdHJCLi7r8vTFhZTbtuZI5dK9NvcJdDyp8H_bVh5hPtaehcOKrcADz3bw4ZKTX_aaP6wfITlyZgHeaCc01ZJBcAuTWnNEt_VNOsGbtkaK4sgXeb7A3PiePSpWgLAzU0jb9H37mCKMOuVbI2bQ860BHae8oPCqMo8-swunxW8H21zPgEZmd04UBBBwTPQE4dXWCSpRnG6nHJLeXbXzkonzKhcY_gOrZJwGkTg4fUQwGJdu81zyiBH8MLbZPpoi_V8q8si56LxnyuaQkJQdcRIWf3hwOsgiFxmhjAZVQbfe1Yf7dHjp3rcd8CIwAIqdIHgctGIkb1Otw=w640-h1136-no"
           }
           if name_match?(HELP, event)
             message = {
