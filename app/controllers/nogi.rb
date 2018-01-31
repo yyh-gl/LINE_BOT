@@ -17,4 +17,4 @@ ASUKA_SAITOU_IMAGE = ['https://cdn.mdpr.jp/photo/images/8b/498/w700c-ez_024b5d6a
 RINA_IKOMA = ["生駒", "里奈", "卒業", "いこま"]
 RINA_IKOMA_IMAGE = ['https://pbs.twimg.com/media/DSMAOHGVAAAJI_c.jpg', 'https://pbs.twimg.com/media/C-aour3UQAEayks.jpg', 'https://geinou-news.jp/images/item_images/images/000/121/876/medium/826f5a68-254f-4b47-9ad1-2e8c5bef60bc.jpg?1504768870', 'https://i1.wp.com/free-style-info.com/wp-content/uploads/2017/07/ikoma032.jpg?resize=600%2C451&ssl=1', 'https://cdn.mdpr.jp/photo/images/0a/a10/w700c-ez_f2472bac2792b69643cc74c0a14094612aeae7872893c95e.jpg' ]
 
-HELP = ["のぎぼっと教えて"]
+HELP = ["のぎぼっと"]
