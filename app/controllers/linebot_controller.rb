@@ -29,7 +29,8 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if MAI_SHIRAISHI.include?(event.message['text'])
+          #          if MAI_SHIRAISHI.include?(event.message['text'])
+          if MAI_SHIRAISHI.each { |name| event.message['text'].match(/#{name}/) }
             message = {
               type: 'image',
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
