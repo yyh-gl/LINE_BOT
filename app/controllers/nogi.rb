@@ -1,6 +1,6 @@
 # coding: utf-8
 
-ALL = "まいやんといくちゃん、うめちゃん、あすか、いこまちゃん"
+ALL = "『まいやん』、『いくちゃん』、『うめちゃん』、『あすか』、『いこまちゃん』"
 
 MAI_SHIRAISHI = ["まい", "白石", "麻衣"]
 MAI_SHIRAISHI_IMAGE = ['https://cdnx.natalie.mu/media/news/music/2017/1115/20171027NW00120_fixw_730_hq.jpg', 'https://cdn.mdpr.jp/photo/images/35/b1f/w700c-ez_49dbe30269038165582bf91839d1519e3c0943d57538989a.jpg', 'https://content.cawaii.media/articles/images/46381/large/b4e3cf30c22cb9590a105b8dcb18dc85a497d13e.jpg?1510048753', 'https://stat.7gogo.jp/appimg_images/20170506/21/07/JX/j/o04780478p.jpg', 'https://d3ndb5jjirqkbj.cloudfront.net/wp/wp-content/uploads/2016/09/mai-shiraishi-main03.jpg']

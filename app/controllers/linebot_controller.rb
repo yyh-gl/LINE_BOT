@@ -53,7 +53,7 @@ class LinebotController < ApplicationController
           if name_match?(HELP, event)
             message = {
               type: 'text',
-              text: "今は#{ALL}がいるよ☆"
+              text: "今の対応人物は\n#{ALL}"
             }
           end
           client.reply_message(event['replyToken'], message)          
