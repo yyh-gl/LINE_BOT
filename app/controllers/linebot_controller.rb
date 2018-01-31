@@ -47,8 +47,10 @@ class LinebotController < ApplicationController
           end
           message = {
             type: 'image',
-            originalContentUrl: send_image,
-            previewImageUrl: send_image
+            # originalContentUrl: send_image,
+            # previewImageUrl: send_image
+            originalContentUrl: "https://photos.google.com/u/2/photo/AF1QipPA-QPxPHeTMJqO850Nif7p6wD6OcH0zBqLMq2j",
+            previewImageUrl: "https://photos.google.com/u/2/photo/AF1QipPA-QPxPHeTMJqO850Nif7p6wD6OcH0zBqLMq2j"            
           }
           if name_match?(HELP, event)
             message = {
