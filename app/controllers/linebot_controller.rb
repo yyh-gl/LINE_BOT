@@ -29,13 +29,13 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if MAI_SHIRAISHI.include?(event.message['text'])
+          if MAI_SHIRAISHI.scan(event.message['text']).size > 0
             message = {
               type: 'image',
               originalContentUrl: MAI_SHIRAISHI_IMAGE,
               previewImageUrl: MAI_SHIRAISHI_IMAGE
             }
-          elsif ERIKA_IKUTA.include?(event.message['text'])
+          elsif ERIKA_IKUTA.scan(event.message['text'])
             message = {
               type: 'image',
               originalContentUrl: ERIKA_IKUTA_IMAGE,
