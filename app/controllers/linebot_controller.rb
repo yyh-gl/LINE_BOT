@@ -34,7 +34,6 @@ class LinebotController < ApplicationController
           target, keyword = event.message['text'].split
           if target != "かもん" || keyword.blank?
             head :no_content
-            puts "aui"
             return
           end
           loop do
