@@ -34,7 +34,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           target, keyword = event.message['text'].split
           if target != "かもん" || keyword.blank?
-            head :ok
+            head :no_content
             return
           end
           loop do
