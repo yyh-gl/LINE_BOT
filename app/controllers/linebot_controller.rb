@@ -32,6 +32,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          puts event.message['text']
           loop do
             @send_image = getImageUrls(event.message['text'])
             break if @send_image.match(/https:/)
