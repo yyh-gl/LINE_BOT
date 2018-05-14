@@ -100,7 +100,8 @@ class LinebotController < ApplicationController
 
     json = JSON.parse(response.body)
     pp json["value"][0]["contentUrl"]
-    return json["value"][0]["contentUrl"]
+    return "https://tokyopopline.com/images/2017/12/171202shiraishi4.jpg"
+    #return json["value"][0]["contentUrl"]
   end
     
 end
