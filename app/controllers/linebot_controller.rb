@@ -33,13 +33,13 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           loop do
-            send_image = getImageUrls(event.message['text'])
-            break if send_image.match(/https:/)
+            @send_image = getImageUrls(event.message['text'])
+            break if @send_image.match(/https:/)
           end
           message = {
             type: 'image',
-            originalContentUrl: send_image,
-            previewImageUrl: send_image
+            originalContentUrl: @send_image,
+            previewImageUrl: @send_image
           }
           if name_match?(HELP, event)
             message = {
