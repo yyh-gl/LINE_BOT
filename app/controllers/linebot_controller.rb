@@ -5,7 +5,6 @@ class LinebotController < ApplicationController
   require 'net/https'
   require 'uri'
   require 'json'
-  require_relative '../../config/nogi'
 
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
