@@ -32,23 +32,10 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          send_image = getImageUrls(event.message['text'])
-          # if name_match?(MAI_SHIRAISHI, event)
-          #   send_image = MAI_SHIRAISHI_IMAGE.sample
-          # elsif name_match?(ERIKA_IKUTA, event)
-          #   send_image = ERIKA_IKUTA_IMAGE.sample
-          # elsif name_match?(MINAMI_UMEZAWA, event)
-          #   send_image = MINAMI_UMEZAWA_IMAGE.sample
-          # elsif name_match?(ASUKA_SAITOU, event)
-          #   send_image = ASUKA_SAITOU_IMAGE.sample
-          # elsif name_match?(RINA_IKOMA, event)
-          #   send_image = RINA_IKOMA_IMAGE.sample
-          # else
-          #   # message = {
-          #   #   type: 'text',
-          #   #   text: event.message['text']
-          #   # }
-          # end
+          loop do
+            send_image = getImageUrls(event.message['text'])
+            break if send_image.match(/https:/)
+          end
           message = {
             type: 'image',
             originalContentUrl: send_image,
@@ -100,8 +87,7 @@ class LinebotController < ApplicationController
 
     json = JSON.parse(response.body)
     pp json["value"][0]["contentUrl"]
-    return "https://tokyopopline.com/images/2017/12/171202shiraishi4.jpg"
-    #return json["value"][0]["contentUrl"]
+    return json["value"][0]["contentUrl"]
   end
     
 end
