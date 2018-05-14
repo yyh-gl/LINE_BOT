@@ -7,6 +7,7 @@ end
 
 gem 'line-bot-api'
 gem 'dotenv-rails'
+gem 'searchbing'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

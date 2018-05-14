@@ -2,6 +2,9 @@
 
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
+  require 'net/https'
+  require 'uri'
+  require 'json'
   require_relative '../../config/nogi'
 
   # callbackアクションのCSRFトークン認証を無効
@@ -29,22 +32,23 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          if name_match?(MAI_SHIRAISHI, event)
-            send_image = MAI_SHIRAISHI_IMAGE.sample            
-          elsif name_match?(ERIKA_IKUTA, event)
-            send_image = ERIKA_IKUTA_IMAGE.sample
-          elsif name_match?(MINAMI_UMEZAWA, event)
-            send_image = MINAMI_UMEZAWA_IMAGE.sample
-          elsif name_match?(ASUKA_SAITOU, event)
-            send_image = ASUKA_SAITOU_IMAGE.sample
-          elsif name_match?(RINA_IKOMA, event)
-            send_image = RINA_IKOMA_IMAGE.sample
-          else
-            # message = {
-            #   type: 'text',
-            #   text: event.message['text']
-            # }
-          end
+          send_image = getImageUrls(event.message['text'])
+          # if name_match?(MAI_SHIRAISHI, event)
+          #   send_image = MAI_SHIRAISHI_IMAGE.sample
+          # elsif name_match?(ERIKA_IKUTA, event)
+          #   send_image = ERIKA_IKUTA_IMAGE.sample
+          # elsif name_match?(MINAMI_UMEZAWA, event)
+          #   send_image = MINAMI_UMEZAWA_IMAGE.sample
+          # elsif name_match?(ASUKA_SAITOU, event)
+          #   send_image = ASUKA_SAITOU_IMAGE.sample
+          # elsif name_match?(RINA_IKOMA, event)
+          #   send_image = RINA_IKOMA_IMAGE.sample
+          # else
+          #   # message = {
+          #   #   type: 'text',
+          #   #   text: event.message['text']
+          #   # }
+          # end
           message = {
             type: 'image',
             originalContentUrl: send_image,
@@ -74,4 +78,35 @@ class LinebotController < ApplicationController
     end
     return false
   end
+
+  def getImageUrls(keyword)
+    count = '1'
+    offset = rand(50).to_s
+
+    if ENV["BING_API_KEY"].length != 32 then
+      puts "Invalid Bing Search API subscription key!"
+      puts "Please paste yours into the source code."
+      abort
+    end
+
+    uri = URI(BING_IMAGE_SEARCH_URI + BING_IMAGE_SEARCH_PATH + "?q=" + URI.escape(term) + "&count=" + count + "&offset=" + offset)
+
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = ENV["BING_API_KEY"]
+
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+      http.request(request)
+    end
+
+    response.each_header do |key, value|
+      # header names are coerced to lowercase
+      if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+        puts key + ": " + value
+      end
+    end
+
+    json = JSON.parse(response.body)
+    return json["value"][0]["contentUrl"]
+  end
+    
 end
