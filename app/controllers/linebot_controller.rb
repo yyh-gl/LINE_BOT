@@ -89,7 +89,7 @@ class LinebotController < ApplicationController
       abort
     end
 
-    uri = URI(BING_IMAGE_SEARCH_URI + BING_IMAGE_SEARCH_PATH + "?q=" + URI.escape(term) + "&count=" + count + "&offset=" + offset)
+    uri = URI(BING_IMAGE_SEARCH_URI + BING_IMAGE_SEARCH_PATH + "?q=" + URI.escape(keyword) + "&count=" + count + "&offset=" + offset)
 
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = ENV["BING_API_KEY"]
