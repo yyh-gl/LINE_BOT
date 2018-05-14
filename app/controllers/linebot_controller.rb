@@ -23,9 +23,8 @@ class LinebotController < ApplicationController
     unless client.validate_signature(body, signature)
       error 400 do 'Bad Request' end
     end
-p
-    events = client.parse_events_from(body)
 
+    events = client.parse_events_from(body)
     events.each { |event|
       case event
       when Line::Bot::Event::Message
@@ -36,9 +35,12 @@ p
             head :no_content
             return
           end
+          count = 0
           loop do
             @send_image = getImageUrls(keyword)
             break if @send_image.match(/https:/)
+            count += 1
+            return if count == 50
           end
           message = {
             type: 'image',
