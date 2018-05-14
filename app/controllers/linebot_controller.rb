@@ -32,8 +32,6 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          p event.message['text']
-          puts "aaaa"
           p event.message['text'].split
           loop do
             @send_image = getImageUrls(event.message['text'])
