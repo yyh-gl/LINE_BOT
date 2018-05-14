@@ -99,6 +99,7 @@ class LinebotController < ApplicationController
     end
 
     json = JSON.parse(response.body)
+    pp json["value"][0]["contentUrl"]
     return json["value"][0]["contentUrl"]
   end
     
