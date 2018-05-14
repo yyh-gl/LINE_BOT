@@ -33,7 +33,7 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           target, keyword = event.message['text'].split
-          head :ok if target != "かもん" && keyword
+          head :ok if target != "かもん" || !keyword.empty?
           loop do
             @send_image = getImageUrls(keyword)
             break if @send_image.match(/https:/)
