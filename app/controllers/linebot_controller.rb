@@ -40,7 +40,10 @@ class LinebotController < ApplicationController
             @send_image = getImageUrls(keyword)
             break if @send_image.match(/https:/)
             count += 1
-            return if count == 50
+            if count == 50
+              head :no_content
+              return
+            end
           end
           message = {
             type: 'image',
