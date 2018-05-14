@@ -98,13 +98,6 @@ class LinebotController < ApplicationController
       http.request(request)
     end
 
-    response.each_header do |key, value|
-      # header names are coerced to lowercase
-      if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
-      end
-    end
-
     json = JSON.parse(response.body)
     return json["value"][0]["contentUrl"]
   end
