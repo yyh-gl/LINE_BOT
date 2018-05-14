@@ -47,12 +47,6 @@ class LinebotController < ApplicationController
             originalContentUrl: @send_image,
             previewImageUrl: @send_image
           }
-          if name_match?(HELP, event)
-            message = {
-              type: 'text',
-              text: "今ひまなのは\n#{ALL}たちだよ"
-            }
-          end
           client.reply_message(event['replyToken'], message)          
         end
       end
@@ -62,15 +56,6 @@ class LinebotController < ApplicationController
   end
 
   private
-
-  def name_match?(name_list, event)
-    name_list.each do |name|
-      if event.message['text'].match(/#{name}/) != nil
-        return true
-      end
-    end
-    return false
-  end
 
   def getImageUrls(keyword)
     count = '1'
