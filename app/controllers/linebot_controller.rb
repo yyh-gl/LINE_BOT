@@ -33,12 +33,6 @@ class LinebotController < ApplicationController
           split_words = event.message['text'].split
           target = split_words[0] # 「かもん」
           keyword = split_words[1..split_words.size-1].join('+')
-          puts "aaaaaa"
-          puts "aaaaaa"
-          p target
-          p keyword
-          puts "aaaaaa"
-          puts "aaaaaa"
           if target != "かもん" || keyword.blank?
             head :no_content
             return
