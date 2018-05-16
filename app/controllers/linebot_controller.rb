@@ -30,7 +30,15 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          target, keyword = event.message['text'].split
+          split_words = event.message['text'].split
+          target = split_words[0] # 「かもん」
+          keyword = split_words[1..split_words.size-1]
+          puts "aaaaaa"
+          puts "aaaaaa"
+          puts target
+          puts keyword
+          puts "aaaaaa"
+          puts "aaaaaa"
           if target != "かもん" || keyword.blank?
             head :no_content
             return
