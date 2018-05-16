@@ -32,11 +32,11 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           split_words = event.message['text'].split
           target = split_words[0] # 「かもん」
-          keyword = split_words[1..split_words.size-1]
+          keyword = split_words[1..split_words.size-1].join('+')
           puts "aaaaaa"
           puts "aaaaaa"
-          puts target
-          puts keyword
+          p target
+          p keyword
           puts "aaaaaa"
           puts "aaaaaa"
           if target != "かもん" || keyword.blank?
