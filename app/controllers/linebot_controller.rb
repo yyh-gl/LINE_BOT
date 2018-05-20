@@ -64,7 +64,7 @@ class LinebotController < ApplicationController
 
   def getImageUrls(keyword)
     count = '1'
-    offset = rand(50).to_s
+    offset = rand(100).to_s
 
     if ENV["BING_API_KEY"].length != 32 then
       puts "Invalid Bing Search API subscription key!"
